@@ -7,9 +7,23 @@
     <title>Mister Canvas</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body onload="init()">
     
-   <canvas class="canvas" id="canvas" width="500" height="450" onclick="canvasClicked(event)"></canvas> 
+    <nav class="main-nav">
+        <input type="color" id="color" onchange="setColor(this.value)"/>
+        <select id="shapes" onchange="setCurrentShape(this.value)">
+                <option disabled selected>Pick a shape</option>
+                <option>Triangle</option>
+                <option>Square</option>
+                <option>Circle</option>
+                <option>Line</option>
+            </select>
+        <button onclick="showAbout()">About</button>
+        <button onclick="clearCanvas()">Clear</button>
+        <button> <a onclick="saveCanvas(this)">Save</a></button>
+    </nav>
+
+   <canvas class="canvas" id="canvas" width="600" height="550" onmousemove="canvasClicked(event)"></canvas> 
     <script src="js/main.js"></script>
     <script src="js/service.js"></script>
 </body>
